@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object RPS</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="{
+      playGame('Rock');
+    }">Rock</button>
+    <button onclick="{
+      playGame('Paper');
+    }">Paper</button>
+    <button onclick="{
+      playGame('Scissor');
+    }">Scissor</button>
+    <button onclick="{
+      resetScore();
+    }">Reset Score</button>
+    
+    <script>
+      const score = {
+        'Wins' : 0,
+        'Loses' : 0,
+        'Ties' : 0,
+      };
+
+      function playGame(playerMove){
+        let computerMove = pickComputerMove();
+        const message = `You picked ${playerMove} and computer picks ${computerMove}.`;
+
+        if (playerMove === 'Scissor'){
+          if (computerMove === 'Scissor') alertTie(message);
+          if (computerMove === 'Rock') alertLose(message);
+          if (computerMove === 'Paper') alertWin(message);
+        } else if (playerMove === 'Rock'){
+          if (computerMove === 'Rock') alertTie(message);
+          if (computerMove === 'Scissor') alertLose(message);
+          if (computerMove === 'Paper') alertWin(message);
+        } else {
+          if (computerMove === 'Paper') alertTie(message);
+          if (computerMove === 'Scissor') alertLose(message);
+          if (computerMove === 'Rock') alertWin(message);
+        }
+      }
+
+      function alertTie(message){
+        score.Ties++;
+        alert(`${message} Tie\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
+      };
+      function alertWin(message){
+        score.Wins++;
+        alert(`${message} Win\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
+      };
+      function alertLose(message){
+        score.Loses++;
+        alert(`${message} Lose\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
+      }
+      function pickComputerMove(){
+        let randomNumber = Math.floor((Math.random() * 3) + 1);
+        let computerMove = '';
+        if (randomNumber === 1) computerMove = 'Rock';
+        if (randomNumber === 2) computerMove = 'Paper';
+        if (randomNumber === 3) computerMove = 'Scissor';
+        return computerMove;
+      }
+      function resetScore(){
+        score.Wins = 0;
+        score.Loses = 0;
+        score.Ties = 0;
+        
+        alert(`Score reset\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
+      }
+    </script>
+  </body>
+</html>
