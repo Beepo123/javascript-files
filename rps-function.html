@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock paper scissor</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="{
+      let computerMove = '';
+      let randomNumber = Math.floor((Math.random() * 3) + 1);
+
+      if (randomNumber === 1) computerMove = 'Rock';
+      if (randomNumber === 2) computerMove = 'Paper';
+      if (randomNumber === 3) computerMove = 'Scissor';
+
+      const message = `You picked Rock and computer picks ${computerMove}.`;
+      if (computerMove === 'Rock') alert(`${message} Tie`);
+      if (computerMove === 'Paper') alert(`${message} Computer wins`);
+      if (computerMove === 'Scissor') alert(`${message} Player wins`);
+    }">Rock</button>
+    <button onclick="{
+      let computerMove = '';
+      let randomNumber = Math.floor((Math.random() * 3) + 1);
+
+      if (randomNumber === 1) computerMove = 'Rock';
+      if (randomNumber === 2) computerMove = 'Paper';
+      if (randomNumber === 3) computerMove = 'Scissor';
+
+      const message = `You picked Paper and computer picks ${computerMove}.`;
+      if (computerMove === 'Paper') alert(`${message} Tie`);
+      if (computerMove === 'Scissor') alert(`${message} Computer wins`);
+      if (computerMove === 'Rock') alert(`${message} Player wins`);
+    }">Paper</button>
+    <button onclick="{
+      let computerMove = '';
+      let randomNumber = Math.floor((Math.random() * 3) + 1);
+
+      if (randomNumber === 1) computerMove = 'Rock';
+      if (randomNumber === 2) computerMove = 'Paper';
+      if (randomNumber === 3) computerMove = 'Scissor';
+
+      const message = `You picked Scissor and computer picks ${computerMove}.`;
+      if (computerMove === 'Scissor') alert(`${message} Tie`);
+      if (computerMove === 'Rock') alert(`${message} Computer wins`);
+      if (computerMove === 'Paper') alert(`${message} Player wins`);
+    }">Paper</button>
+
+    <script>
+      function pickComputerMove(){
+        
+      }
+    </script>
+  </body>
+</html>
