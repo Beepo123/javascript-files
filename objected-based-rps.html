@@ -8,12 +8,15 @@
     <button onclick="{
       playGame('Rock');
     }">Rock</button>
+
     <button onclick="{
       playGame('Paper');
     }">Paper</button>
+
     <button onclick="{
       playGame('Scissor');
     }">Scissor</button>
+    
     <button onclick="{
       resetScore();
     }">Reset Score</button>
@@ -71,6 +74,8 @@
         
         alert(`Score reset\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
       }
+
+      console.log(JSON.stringify(score));
     </script>
   </body>
 </html>
