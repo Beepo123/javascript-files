@@ -17,7 +17,9 @@
       playGame('Scissor');
     }">Scissor</button>
 
-    <br \>
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+
     <p class="js-rps-scores">Wins: 0, Losses: 0, Ties: 0</p>
     <button onclick="{
       resetScore();
@@ -30,20 +32,50 @@
 
       function playGame(playerMove){
         let computerMove = pickComputerMove();
-
+        let result = '';
         if (playerMove === 'Scissor'){
-          if (computerMove === 'Scissor') score.Ties++;
-          if (computerMove === 'Rock') score.Loses++;
-          if (computerMove === 'Paper') score.Wins++;
+          if (computerMove === 'Scissor'){
+            score.Ties++;
+            result = "It's a Tie";
+          }
+          if (computerMove === 'Rock'){
+            score.Loses++;
+            result = 'You lose';
+          }
+          if (computerMove === 'Paper'){
+            score.Wins++;
+            result = 'You Win';
+          }
         } else if (playerMove === 'Rock'){
-          if (computerMove === 'Rock') score.Ties++;
-          if (computerMove === 'Scissor') score.Loses++;
-          if (computerMove === 'Paper') score.Wins++;
+          if (computerMove === 'Rock'){
+            score.Ties++;
+            result = "It's a Tie";
+          }
+          if (computerMove === 'Scissor'){
+            score.Loses++;
+            result = 'You lose';
+          }
+          if (computerMove === 'Paper'){
+            score.Wins++;
+            result = 'You Win';
+          }
         } else {
-          if (computerMove === 'Paper') score.Ties++;
-          if (computerMove === 'Scissor') score.Loses++;
-          if (computerMove === 'Rock') score.Wins++;
+          if (computerMove === 'Paper'){
+            score.Ties++;
+            result = "It's a Tie";
+          }
+          if (computerMove === 'Scissor'){
+            score.Loses++;
+            result = 'You lose';
+          }
+          if (computerMove === 'Rock'){
+            score.Wins++;
+            result = 'You Win';
+          }
         }
+
+        showResult(result);
+        showMoves(playerMove, computerMove);
 
         let stringScore = `Wins: ${score.Wins}, Losses: ${score.Loses}, Ties: ${score.Ties}`;
         updateScore(stringScore);
@@ -69,10 +101,22 @@
         stringScore = `Wins: ${score.Wins}, Losses: ${score.Loses}, Ties: ${score.Ties}`;
         updateScore(stringScore);
         localStorage.setItem('score', JSON.stringify(score));
+
+        document.querySelector('.js-result').innerHTML = '';
+        document.querySelector('.js-moves').innerHTML = '';
       }
 
       function updateScore(stringScore){
         document.querySelector('.js-rps-scores').innerHTML = stringScore;
+      }
+
+      function showResult(result){
+        document.querySelector('.js-result').innerHTML = result;
+      }
+
+      function showMoves(playerMove, computerMove){
+        document.querySelector('.js-moves').innerHTML =
+          `You ${playerMove} - ${computerMove} Computer`
       }
     </script>
   </body>
