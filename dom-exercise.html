@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <input placeholder="Name" class="js-nameInput" onkeyup="
+      submit();">
+    <button onclick="submit();">Submit</button>
+    <p class="js-nameArea"></p>
+  </head>
+  <body>
+    <script>
+      function submit(){
+        let name = document.querySelector('.js-nameInput').value;
+        document.querySelector('.js-nameArea').innerHTML = name;
+      }
+    </script>
+  </body>
+</html>
