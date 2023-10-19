@@ -150,8 +150,14 @@
       }
 
       function showMoves(playerMove, computerMove){
+        if(playerMove === 'Scissor'){
+          path = 'scissors-emoji.png';
+        } else {
+          path = playerMove.toLowerCase() + '-emoji.png';
+        }
+
         document.querySelector('.js-moves').innerHTML =
-          `You ${playerMove} - ${computerMove} Computer`
+          'this'
       }
     </script>
   </body>
