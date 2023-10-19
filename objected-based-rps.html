@@ -16,49 +16,40 @@
     <button onclick="{
       playGame('Scissor');
     }">Scissor</button>
-    
+
+    <br \>
+    <p class="js-rps-scores">Wins: 0, Losses: 0, Ties: 0</p>
     <button onclick="{
       resetScore();
     }">Reset Score</button>
     
     <script>
-      const score = {
-        'Wins' : 0,
-        'Loses' : 0,
-        'Ties' : 0,
-      };
+      let score = JSON.parse(localStorage.getItem('score'));
+      stringScore = `Wins: ${score.Wins}, Losses: ${score.Loses}, Ties: ${score.Ties}`;
+      updateScore(stringScore);
 
       function playGame(playerMove){
         let computerMove = pickComputerMove();
-        const message = `You picked ${playerMove} and computer picks ${computerMove}.`;
 
         if (playerMove === 'Scissor'){
-          if (computerMove === 'Scissor') alertTie(message);
-          if (computerMove === 'Rock') alertLose(message);
-          if (computerMove === 'Paper') alertWin(message);
+          if (computerMove === 'Scissor') score.Ties++;
+          if (computerMove === 'Rock') score.Loses++;
+          if (computerMove === 'Paper') score.Wins++;
         } else if (playerMove === 'Rock'){
-          if (computerMove === 'Rock') alertTie(message);
-          if (computerMove === 'Scissor') alertLose(message);
-          if (computerMove === 'Paper') alertWin(message);
+          if (computerMove === 'Rock') score.Ties++;
+          if (computerMove === 'Scissor') score.Loses++;
+          if (computerMove === 'Paper') score.Wins++;
         } else {
-          if (computerMove === 'Paper') alertTie(message);
-          if (computerMove === 'Scissor') alertLose(message);
-          if (computerMove === 'Rock') alertWin(message);
+          if (computerMove === 'Paper') score.Ties++;
+          if (computerMove === 'Scissor') score.Loses++;
+          if (computerMove === 'Rock') score.Wins++;
         }
+
+        let stringScore = `Wins: ${score.Wins}, Losses: ${score.Loses}, Ties: ${score.Ties}`;
+        updateScore(stringScore);
+        localStorage.setItem('score', JSON.stringify(score));
       }
 
-      function alertTie(message){
-        score.Ties++;
-        alert(`${message} Tie\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
-      };
-      function alertWin(message){
-        score.Wins++;
-        alert(`${message} Win\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
-      };
-      function alertLose(message){
-        score.Loses++;
-        alert(`${message} Lose\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
-      }
       function pickComputerMove(){
         let randomNumber = Math.floor((Math.random() * 3) + 1);
         let computerMove = '';
@@ -67,15 +58,22 @@
         if (randomNumber === 3) computerMove = 'Scissor';
         return computerMove;
       }
+
       function resetScore(){
-        score.Wins = 0;
-        score.Loses = 0;
-        score.Ties = 0;
-        
-        alert(`Score reset\nWins: ${score.Wins} \tLoses: ${score.Loses} \tTies: ${score.Ties}`);
+        localStorage.removeItem('score');
+        score = {
+          Wins : 0,
+          Loses: 0,
+          Ties: 0,
+        }
+        stringScore = `Wins: ${score.Wins}, Losses: ${score.Loses}, Ties: ${score.Ties}`;
+        updateScore(stringScore);
+        localStorage.setItem('score', JSON.stringify(score));
       }
 
-      console.log(JSON.stringify(score));
+      function updateScore(stringScore){
+        document.querySelector('.js-rps-scores').innerHTML = stringScore;
+      }
     </script>
   </body>
 </html>

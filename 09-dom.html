@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM projects</title>
+  </head>
+  <body>
+    <p>Youtube Subscribe Button></p>
+    <button onclick="
+      subscribe();
+    "class="js-subscribe-button">Subscribe</button>
+
+    <br />
+    <br />
+    <br />
+    <p>Rock Paper Scissors</p>
+    <p>Click here</p>
+    <br />
+    <br />
+
+    <p>Amazon Shipping calculator</p>
+    <p>Orders under $40=+$10 shipping.</p>
+    <p>Orders over $40=FREE shipping.</p>
+    <input>
+    <button>Calculate</button>
+    </Button>
+    <script>
+      function subscribe(){
+        if (document.querySelector('.js-subscribe-button').innerText === 'Subscribe'){
+        document.querySelector('button').innerHTML = 'Subscribed'
+        } else {
+          document.querySelector('button').innerHTML = 'Subscribe'
+        }
+      };
+    </script>
+  </body>
+</html>
