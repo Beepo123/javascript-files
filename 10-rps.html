@@ -36,6 +36,13 @@
         font-weight: bold;
       }
 
+      .reset-score-button {
+        background-color: white;
+        border: none;
+        padding: 8px 15px;
+        font-size: 15px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -50,7 +57,7 @@
 
     <button onclick="{
       playGame('Scissor');
-    }" class="move-button"><img src="scissors-emoji.png" class= "move-icon"></button>
+    }" class="move-button"><img src="scissor-emoji.png" class= "move-icon"></button>
 
     <p class="js-result result"></p>
     <p class="js-moves"></p>
@@ -58,7 +65,7 @@
     <p class="js-rps-scores">Wins: 0, Losses: 0, Ties: 0</p>
     <button onclick="{
       resetScore();
-    }">Reset Score</button>
+    }" class="reset-score-button">Reset Score</button>
     
     <script>
       let score = JSON.parse(localStorage.getItem('score'));
@@ -150,14 +157,13 @@
       }
 
       function showMoves(playerMove, computerMove){
-        if(playerMove === 'Scissor'){
-          path = 'scissors-emoji.png';
-        } else {
-          path = playerMove.toLowerCase() + '-emoji.png';
-        }
+        playerMove = (playerMove + '-emoji.png').toLowerCase();
+        computerMove = (computerMove + '-emoji.png').toLowerCase();
 
-        document.querySelector('.js-moves').innerHTML =
-          'this'
+        document.querySelector('.js-moves').innerHTML = 
+        `<p class="js-moves">You<img src=${playerMove} 
+          class="move-icon"><img src=${computerMove} class="move-icon">Computer</p>`;
+        
       }
     </script>
   </body>
