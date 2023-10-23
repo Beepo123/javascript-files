@@ -2,23 +2,7 @@
 <html>
   <head>
     <title>10d</title>
-    <style>
-      .gaming-button {
-        background-color: grey;
-        color: black;
-        border: none;
-        font-size: 20px;
-        border-radius: 10px;
-        padding: 10px 50px;
-        cursor: pointer;
-      }
-
-      .button-clicked {
-        background-color: black;
-        color: white;
-      }
-
-    </style>
+    <link rel="stylesheet" href="styles/10d.css">
   </head>
   <body>
     <button class="js-gaming-button gaming-button" onclick="buttons('js-gaming-button');">Gaming</button>
@@ -27,12 +11,6 @@
 
     <button class="js-tech-button gaming-button" onclick="buttons('js-tech-button');">Tech</button>
 
-    <script>
-      function buttons(className){
-        let buttonElements = document.querySelector(`.${className}`);
-
-        buttonElements.classList.toggle('button-clicked');
-      }
-    </script>
+    <script src="scripts/10d.js"></script>
   </body>
 </html>
