@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script>
+      let words = ['apple', 'grape', 'apple', 'apple'];
+      let nums = [1,23,4,5,65]
+
+      minMax(nums);
+      console.log(countWords(words));
+
+      function addOne(array){
+        let tempArr = [];
+        for(let i = 0; i < array.length; i++){
+          tempArr[i] = array[i] + 1;
+        }
+        return tempArr;
+      }
+
+      function addNum(array, number){
+        let tempArr = [];
+        for(let i = 0; i < array.length; i++){
+          tempArr[i] = array[i] + number;
+        }
+
+        return tempArr
+      }
+
+      function addArrays(arr1, arr2){
+        let sumArr = [];
+        for(let i = 0; i < arr1.length; i++){
+          sumArr[i] = arr1[i] + arr2[i];
+        }
+        return sumArr;
+      }
+
+      function countPositive(arr){
+        let count = 0;
+        for(let i = 0; i < arr.length; i++){
+          if(arr[i] > 0) count++;
+        }
+        return count;
+      }
+
+      function minMax(nums){
+        let values = {
+          _max : null,
+          _min : null,
+        }
+
+        for(let i = 0; i < nums.length; i++){
+          let temp = nums[i];
+          if(temp < values['min']){
+            values['min'] = temp;
+          } else if (temp > values['max']){
+            values['max'] = temp;
+          }
+        }
+        return values;
+      }
+
+      function countWords(words){
+        let wordCount = {};
+        for(let i = 0; i < words.length; i++){
+          const word = words[i];
+          if(wordCount[word]){
+            wordCount[word] += 1;
+          } else {
+            wordCount[word] = 1;
+          }
+        }
+        return wordCount;
+      }
+
+    </script>
+  </body>
+</html>
