@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>acitivty 11</title>
+    <link rel="stylesheet" href="styles/11-todo-list.css">
+  </head>
+  <body>
+    <script>
+      let foods = ['egg', 'apple', 'egg', 'egg', 'ham']
+
+      unique(['green', 'red', 'blue', 'red']);
+
+      function removeEgg(foods){
+        let eggCounter = 0;
+        let foodsCopy = foods.slice();
+
+        let tempArr = [];
+        for(let i = 0; i < foodsCopy.length; i++){
+          if(foodsCopy[i] === 'egg'){
+            eggCounter++;
+            if(eggCounter > 2){
+              tempArr.push(foodsCopy[i])
+            }
+          } else {
+            tempArr.push(foodsCopy[i]);
+          }
+        }
+        return tempArr;
+      }
+
+      function fizzBuzz(){
+        for(let i = 0; i < 20; i++){
+          if(i % 3 === 0 && i % 5 === 0){
+            console.log('fizzBuzz');
+          } else if (i % 3){
+            console.log('Fizz');
+          } else {
+            console.log('Buzz');
+          }
+        }
+      }
+
+      function findIndex(array, word){
+        for(let i = 0; i < array.length; i++){
+          if(array[i] === word){
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function unique(array){
+        uniqueArray = []
+        for(let i = 0; i < array.length; i++){
+          let element = array[i];
+          if(!findIndex(uniqueArray, element)){
+            uniqueArray.push(element);
+          }
+        }
+        console.log(uniqueArray);
+      }
+
+    </script>
+  </body>
+</html>
