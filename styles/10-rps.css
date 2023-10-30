@@ -31,7 +31,8 @@ body {
   font-weight: bold;
 }
 
-.reset-score-button {
+.reset-score-button,
+.play-button {
   background-color: white;
   border: none;
   padding: 8px 15px;

@@ -36,3 +36,9 @@ function addTodo(){
   localStorage.setItem('todoList', JSON.stringify(todoList))
   renderTodoList();
 }
+
+let sample = function something(){
+  console.log('hiii')
+}
+
+sample()
